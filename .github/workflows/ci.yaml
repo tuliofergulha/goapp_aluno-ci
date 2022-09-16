@@ -1,0 +1,12 @@
+name: ci-golang-workflow
+on: [push]
+jobs:
+  check-application:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 #download new features add
+      - uses: actions/setup-go@v2 #setup go enviroment
+        with:
+          go-version: 1.13.8
+      - run: go test
+      - run: go run math.go
